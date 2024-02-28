@@ -10,7 +10,7 @@ Given('I have an item in cart', async function() {
     if (!numberOfProducts) {
         await headerSection.selectMenuItem("Women").click();
         await productsPage.firstProductImageLink.click();
-        await productPage.mediumSizeOption.click();
+        await productPage.selectSizeDropdown("M");
         await productPage.selectRandomColor();
         await productPage.addToCartButton.click();
         await productPage.checkoutLink.click();
@@ -28,8 +28,8 @@ When('I click on a product', async function() {
     await productsPage.firstProductImageLink.click();
 });
 
-When('I select size and color', async function() {
-    await productPage.mediumSizeOption.click();
+When('I select {word} size and random color', async function(size) {
+    await productPage.selectSizeDropdown(size);
     await productPage.selectRandomColor();
 });
 

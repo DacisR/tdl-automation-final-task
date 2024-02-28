@@ -12,7 +12,7 @@ Given('I am not signed in', async function() {
 When('I add an item to the cart', async function() {
     await headerSection.selectMenuItem("Women").click();
     await productsPage.firstProductImageLink.click();
-    await productPage.mediumSizeOption.click();
+    await productPage.selectSizeDropdown("M");
     await productPage.selectRandomColor();
     await productPage.addToCartButton.click();
     await productPage.checkoutLink.click();

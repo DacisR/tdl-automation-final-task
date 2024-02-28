@@ -7,7 +7,7 @@ class ProductPage extends Page {
     get checkoutLink() { return $('a[title="Proceed to checkout"]'); }
     get colorPickList() { return $$('#color_to_pick_list a.color_pick'); }
     get sizeDropdownMenu() { return $('#attributes select'); }
-    get mediumSizeOption() { return $('#attributes select option[value="2"]') }
+    sizeDropdownItem(size) { return $(`#attributes select option[title="${size}"]`) }
     async selectRandomColor() {
         const numberOfColors = await this.colorPickList.length;
 
@@ -17,6 +17,10 @@ class ProductPage extends Page {
         }
 
         return true;
+    }
+    async selectSizeDropdown(size) {
+        await this.sizeDropdownMenu.click();
+        await this.sizeDropdownItem(size).click();
     }
 }
 
