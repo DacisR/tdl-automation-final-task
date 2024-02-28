@@ -10,6 +10,7 @@ Feature: Cart
     And I click Proceed to Checkout button
     Then My cart shows 1 item
 
+  @remove
   Scenario: User can successfully remove an item from cart
     Given I am on the home page
     And I have an item in cart
